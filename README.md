@@ -21,7 +21,7 @@
     <a href="https://github.com/xmake-io/xrepo/blob/master/LICENSE.md">
       <img src="https://img.shields.io/github/license/xmake-io/xrepo.svg?colorB=f48041&style=flat-square" alt="license" />
     </a>
-    <a href="https://xmake.io/#/about/sponsor">
+    <a href="https://xmake.io/#/zh-cn/about/sponsor">
       <img src="https://img.shields.io/badge/donate-us-orange.svg?style=flat-square" alt="Donate" />
     </a>
   </div>
@@ -37,5 +37,82 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## Introduction ([中文](/README_zh.md))
 
-xrepo is a cross-platform C/C++ package manager based on Xmake.
+xRepo is a cross-platform C/C++ package manager based on [Xmake](https://github.com/xmake-io/xmake).
 
+If you want to know more, please refer to: [Documents](https://xmake.io/#/home), [Github](https://github.com/xmake-io/xrepo) and [Gitee](https://gitee.com/tboox/xrepo)
+
+## Installation
+
+We only need install xmake to use the xrepo command. About the installation of xmake, we can see: [Xmake Installation Document](https://xmake.io/#/guide/installation).
+
+## Get started
+
+### Installation package
+
+#### Basic usage
+
+```console
+xrepo install zlib tbox
+```
+
+#### Install the specified version package
+
+```console
+xrepo install "zlib 1.2.x"
+xrepo install "zlib >= 1.2.0"
+```
+
+#### Install the specified platform package
+
+```console
+xrepo install -p iphoneos -a arm64 zlib
+xrepo install -p android [--ndk=/xxx] zlib
+xrepo install -p mingw [--mingw=/xxx] zlib
+```
+
+#### Install the debug version package
+
+```console
+xrepo install -m debug zlib
+```
+
+#### Install the dynamic library version package
+
+```console
+xrepo install -k shared zlib
+```
+
+#### Install the specified configuration package
+
+```console
+xrepo install --configs="vs_runtime=MD" zlib
+xrepo install --configs="regex=true,thread=true" boost
+```
+
+#### Install third-party package manager packages
+
+```console
+xrepo install brew::zlib
+xrepo install vcpkg::zlib
+xrepo install conan::zlib/1.2.11
+xrepo install clib::zlib
+```
+
+### Find the library usage information of the package
+
+```console
+xrepo fetch zlib
+xrepo fetch --cflags zlib
+xrepo fetch --ldflags zlib
+xrepo fetch -p iphoneos --cflags zlib
+```
+
+## Contacts
+
+* Email：[waruqi@gmail.com](mailto:waruqi@gmail.com)
+* Homepage：[tboox.org](https://tboox.org)
+* Community：[/r/xmake on reddit](https://www.reddit.com/r/xmake/)
+* ChatRoom：[Char on telegram](https://t.me/tbooxorg), [Chat on gitter](https://gitter.im/xmake-io/xmake?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+* Source Code：[Github](https://github.com/xmake-io/xmake), [Gitee](https://gitee.com/tboox/xmake)
+* QQ Group: 343118190(Technical Support), 662147501
+* Wechat Public: tboox-os
