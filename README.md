@@ -58,7 +58,8 @@ We only need install xmake to use the xrepo command. About the installation of x
 
 ## Suppory distributed repository
 
-In addition to directly retrieving the installation package from the official repository: [xmake-repo](https://github.com/xmake-io/xmake-repo),
+In addition to directly retrieving the installation package from the official repository: [xmake-repo](https://github.com/xmake-io/xmake-repo).
+
 We can also add any number of self-built repositories, and even completely isolate the external network, and only maintain the installation and integration of private packages on the company's internal network.
 
 Just use the following command to add your own warehouse address:
