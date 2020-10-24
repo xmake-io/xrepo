@@ -140,8 +140,13 @@ $ xrepo fetch --cflags openssl
 ```
 
 ```console
-$ xrepo fetch -p [iphoneos|android] --cflags zlib
+$ xrepo fetch -p [iphoneos|android] --cflags "zlib 1.2.11"
 -I/Users/ruki/.xmake/packages/z/zlib/1.2.11/df72d410e7e14391b1a4375d868a240c/include
+```
+
+```console
+$ xrepo fetch --cflags --ldflags conan::zlib/1.2.11
+-I/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include -L/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib -lz
 ```
 
 ## Contacts
