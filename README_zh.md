@@ -56,6 +56,32 @@ xRepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 * MSYS (i386, x86_64)
 * MinGW (i386, x86_64, arm, arm64)
 
+## 分布式仓库支持
+
+除了可以直接从官方仓库：[xmake-repo](https://github.com/xmake-io/xmake-repo) 检索安装包之外，
+我们还可以添加任意多个自建的仓库，甚至可以完全隔离外网，仅仅在公司内部网络维护私有包的安装集成。
+
+只需要通过下面的命令，添加上自己的仓库地址：
+
+```console
+$ xrepo add-repo myrepo https://github.com/mygroup/myrepo
+```
+
+## 与 xmake 的工程无缝集成
+
+```lua
+add_requires("tbox >1.6.1", "libuv master", "vcpkg::ffmpeg", "brew::pcre2/libpcre2-8")
+add_requires("conan::openssl/1.1.1g", {alias = "openssl", optional = true, debug = true}) 
+target("test")
+    set_kind("binary")
+    add_files("src/*.c")
+    add_packages("tbox", "libuv", "vcpkg::ffmpeg", "brew::pcre2/libpcre2-8", "openssl")
+```
+
+下面是与 xmake 集成的整体架构和编译流程。
+
+<img src="https://xmake.io/assets/img/index/package_arch.png" width="650px" />
+
 ## 快速上手
 
 ### 安装包
@@ -68,9 +94,11 @@ $ xrepo install zlib tbox
 
 #### 安装指定版本包
 
+完整支持 Semantic Versioning (语义版本)。
+
 ```console
 $ xrepo install "zlib 1.2.x"
-$ xrepo install "zlib >= 1.2.0"
+$ xrepo install "zlib >=1.2.0"
 ```
 
 #### 安装指定平台包
@@ -106,7 +134,6 @@ $ xrepo install --configs="regex=true,thread=true" boost
 $ xrepo install brew::zlib
 $ xrepo install vcpkg::zlib
 $ xrepo install conan::zlib/1.2.11
-$ xrepo install clib::zlib
 ```
 
 ### 查找包的库使用信息
