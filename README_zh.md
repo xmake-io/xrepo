@@ -140,7 +140,7 @@ $ xrepo fetch --cflags openssl
 ```
 
 ```console
-$ xrepo fetch -p [iphoneos|android] --cflags "zlib 1.2.11"
+$ xrepo fetch -p [iphoneos|android] --cflags "zlib 1.2.x"
 -I/Users/ruki/.xmake/packages/z/zlib/1.2.11/df72d410e7e14391b1a4375d868a240c/include
 ```
 
