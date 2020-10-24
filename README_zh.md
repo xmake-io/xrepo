@@ -45,6 +45,17 @@ xRepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 
 我们只需要安装上 xmake 就可以使用 xrepo 命令，关于 xmake 的安装，我们可以看下：[xmake 安装文档](https://xmake.io/#/zh-cn/guide/installation)。
 
+## 支持平台
+
+* Windows (x86, x64)
+* macOS (i386, x86_64, arm64)
+* Linux (i386, x86_64, cross-toolchains ..)
+* *BSD (i386, x86_64)
+* Android (x86, x86_64, armeabi, armeabi-v7a, arm64-v8a)
+* iOS (armv7, armv7s, arm64, i386, x86_64)
+* MSYS (i386, x86_64)
+* MinGW (i386, x86_64, arm, arm64)
+
 ## 快速上手
 
 ### 安装包
@@ -52,59 +63,85 @@ xRepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 #### 基本使用
 
 ```console
-xrepo install zlib tbox
+$ xrepo install zlib tbox
 ```
 
 #### 安装指定版本包
 
 ```console
-xrepo install "zlib 1.2.x"
-xrepo install "zlib >= 1.2.0"
+$ xrepo install "zlib 1.2.x"
+$ xrepo install "zlib >= 1.2.0"
 ```
 
 #### 安装指定平台包
 
 ```console
-xrepo install -p iphoneos -a arm64 zlib
-xrepo install -p android [--ndk=/xxx] zlib
-xrepo install -p mingw [--mingw=/xxx] zlib
+$ xrepo install -p iphoneos -a arm64 zlib
+$ xrepo install -p android [--ndk=/xxx] zlib
+$ xrepo install -p mingw [--mingw=/xxx] zlib
 ```
 
 #### 安装调试版本包
 
 ```console
-xrepo install -m debug zlib
+$ xrepo install -m debug zlib
 ```
 
 #### 安装动态库版本包
 
 ```console
-xrepo install -k shared zlib
+$ xrepo install -k shared zlib
 ```
 
 #### 安装指定配置包
 
 ```console
-xrepo install --configs="vs_runtime=MD" zlib
-xrepo install --configs="regex=true,thread=true" boost
+$ xrepo install --configs="vs_runtime=MD" zlib
+$ xrepo install --configs="regex=true,thread=true" boost
 ```
 
 #### 安装第三方包管理器的包
 
 ```console
-xrepo install brew::zlib
-xrepo install vcpkg::zlib
-xrepo install conan::zlib/1.2.11
-xrepo install clib::zlib
+$ xrepo install brew::zlib
+$ xrepo install vcpkg::zlib
+$ xrepo install conan::zlib/1.2.11
+$ xrepo install clib::zlib
 ```
 
 ### 查找包的库使用信息
 
 ```console
-xrepo fetch zlib
-xrepo fetch --cflags zlib
-xrepo fetch --ldflags zlib
-xrepo fetch -p iphoneos --cflags zlib
+$ xrepo fetch pcre2
+{
+  {
+    linkdirs = {
+      "/usr/local/Cellar/pcre2/10.33/lib"
+    },
+    links = {
+      "pcre2-8"
+    },
+    defines = {
+      "PCRE2_CODE_UNIT_WIDTH=8"
+    },
+    includedirs = "/usr/local/Cellar/pcre2/10.33/include"
+  }
+}
+```
+
+```console
+$ xrepo fetch --ldflags openssl
+-L/Users/ruki/.xmake/packages/o/openssl/1.1.1/d639b7d6e3244216b403b39df5101abf/lib -lcrypto -lssl
+```
+
+```console
+$ xrepo fetch --cflags openssl
+-I/Users/ruki/.xmake/packages/o/openssl/1.1.1/d639b7d6e3244216b403b39df5101abf/include
+```
+
+```console
+$ xrepo fetch -p [iphoneos|android] --cflags zlib
+-I/Users/ruki/.xmake/packages/z/zlib/1.2.11/df72d410e7e14391b1a4375d868a240c/include
 ```
 
 ## 联系方式
@@ -116,4 +153,4 @@ xrepo fetch -p iphoneos --cflags zlib
 * 源码：[Github](https://github.com/xmake-io/xmake), [Gitee](https://gitee.com/tboox/xmake)
 * QQ群：343118190(技术支持), 662147501
 * 微信公众号：tboox-os
- 
+

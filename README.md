@@ -45,6 +45,17 @@ If you want to know more, please refer to: [Documents](https://xmake.io/#/home),
 
 We only need install xmake to use the xrepo command. About the installation of xmake, we can see: [Xmake Installation Document](https://xmake.io/#/guide/installation).
 
+## Supported platforms
+
+* Windows (x86, x64)
+* macOS (i386, x86_64, arm64)
+* Linux (i386, x86_64, cross-toolchains ..)
+* *BSD (i386, x86_64)
+* Android (x86, x86_64, armeabi, armeabi-v7a, arm64-v8a)
+* iOS (armv7, armv7s, arm64, i386, x86_64)
+* MSYS (i386, x86_64)
+* MinGW (i386, x86_64, arm, arm64)
+
 ## Get started
 
 ### Installation package
@@ -52,59 +63,85 @@ We only need install xmake to use the xrepo command. About the installation of x
 #### Basic usage
 
 ```console
-xrepo install zlib tbox
+$ xrepo install zlib tbox
 ```
 
 #### Install the specified version package
 
 ```console
-xrepo install "zlib 1.2.x"
-xrepo install "zlib >= 1.2.0"
+$ xrepo install "zlib 1.2.x"
+$ xrepo install "zlib >= 1.2.0"
 ```
 
 #### Install the specified platform package
 
 ```console
-xrepo install -p iphoneos -a arm64 zlib
-xrepo install -p android [--ndk=/xxx] zlib
-xrepo install -p mingw [--mingw=/xxx] zlib
+$ xrepo install -p iphoneos -a arm64 zlib
+$ xrepo install -p android [--ndk=/xxx] zlib
+$ xrepo install -p mingw [--mingw=/xxx] zlib
 ```
 
 #### Install the debug version package
 
 ```console
-xrepo install -m debug zlib
+$ xrepo install -m debug zlib
 ```
 
 #### Install the dynamic library version package
 
 ```console
-xrepo install -k shared zlib
+$ xrepo install -k shared zlib
 ```
 
 #### Install the specified configuration package
 
 ```console
-xrepo install --configs="vs_runtime=MD" zlib
-xrepo install --configs="regex=true,thread=true" boost
+$ xrepo install --configs="vs_runtime=MD" zlib
+$ xrepo install --configs="regex=true,thread=true" boost
 ```
 
 #### Install third-party package manager packages
 
 ```console
-xrepo install brew::zlib
-xrepo install vcpkg::zlib
-xrepo install conan::zlib/1.2.11
-xrepo install clib::zlib
+$ xrepo install brew::zlib
+$ xrepo install vcpkg::zlib
+$ xrepo install conan::zlib/1.2.11
+$ xrepo install clib::zlib
 ```
 
 ### Find the library usage information of the package
 
 ```console
-xrepo fetch zlib
-xrepo fetch --cflags zlib
-xrepo fetch --ldflags zlib
-xrepo fetch -p iphoneos --cflags zlib
+$ xrepo fetch pcre2
+{
+  {
+    linkdirs = {
+      "/usr/local/Cellar/pcre2/10.33/lib"
+    },
+    links = {
+      "pcre2-8"
+    },
+    defines = {
+      "PCRE2_CODE_UNIT_WIDTH=8"
+    },
+    includedirs = "/usr/local/Cellar/pcre2/10.33/include"
+  }
+}
+```
+
+```console
+$ xrepo fetch --ldflags openssl
+-L/Users/ruki/.xmake/packages/o/openssl/1.1.1/d639b7d6e3244216b403b39df5101abf/lib -lcrypto -lssl
+```
+
+```console
+$ xrepo fetch --cflags openssl
+-I/Users/ruki/.xmake/packages/o/openssl/1.1.1/d639b7d6e3244216b403b39df5101abf/include
+```
+
+```console
+$ xrepo fetch -p [iphoneos|android] --cflags zlib
+-I/Users/ruki/.xmake/packages/z/zlib/1.2.11/df72d410e7e14391b1a4375d868a240c/include
 ```
 
 ## Contacts
