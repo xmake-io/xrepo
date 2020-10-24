@@ -81,13 +81,13 @@ $ xrepo install -p android [--ndk=/xxx] zlib
 $ xrepo install -p mingw [--mingw=/xxx] zlib
 ```
 
-#### Install the debug version package
+#### Install the debug package
 
 ```console
 $ xrepo install -m debug zlib
 ```
 
-#### Install the dynamic library version package
+#### Install the package with dynamic library
 
 ```console
 $ xrepo install -k shared zlib
@@ -100,16 +100,15 @@ $ xrepo install --configs="vs_runtime=MD" zlib
 $ xrepo install --configs="regex=true,thread=true" boost
 ```
 
-#### Install third-party package manager packages
+#### Install packages from third-party package manager
 
 ```console
 $ xrepo install brew::zlib
 $ xrepo install vcpkg::zlib
 $ xrepo install conan::zlib/1.2.11
-$ xrepo install clib::zlib
 ```
 
-### Find the library usage information of the package
+### Find the library information of the package
 
 ```console
 $ xrepo fetch pcre2
