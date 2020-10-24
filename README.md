@@ -41,7 +41,7 @@ xrepo is a cross-platform C/C++ package manager based on [Xmake](https://github.
 
 It is based on the runtime provided by xmake, but it is a complete and independent package management program. Compared with package managers such as vcpkg/homebrew, xrepo can provide C/C++ packages for more platforms and architectures at the same time.
 
-And it also supports multi-version semantic selection. In addition, it is also a decentralized distributed warehouse. It not only provides the official [xmake-repo](https://github.com/xmake-io/xmake-repo) warehouse, It also supports users to build multiple private warehouses.
+And it also supports multi-version semantic selection. In addition, it is also a decentralized distributed repository. It not only provides the official [xmake-repo](https://github.com/xmake-io/xmake-repo) repository, It also supports users to build multiple private repositorys.
 
 At the same time, xrepo also supports installing packages from third-party package managers such as vcpkg/homebrew/conan, and provides unified and consistent library link information to facilitate integration and docking with third-party projects.
 
@@ -68,7 +68,7 @@ In addition to directly retrieving the installation package from the official re
 
 We can also add any number of self-built repositories, and even completely isolate the external network, and only maintain the installation and integration of private packages on the company's internal network.
 
-Just use the following command to add your own warehouse address:
+Just use the following command to add your own repository address:
 
 ```console
 $ xrepo add-repo myrepo https://github.com/mygroup/myrepo
@@ -179,6 +179,57 @@ $ xrepo fetch -p [iphoneos|android] --cflags "zlib 1.2.x"
 ```console
 $ xrepo fetch --cflags --ldflags conan::zlib/1.2.11
 -I/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include -L/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib -lz
+```
+
+### Export the installed packages
+
+xrepo can quickly export installed packages, including corresponding library files, header files, etc.
+
+```console
+$ xrepo export -o /tmp/output zlib
+```
+
+### Show the given package information
+
+```console
+$ xrepo info zlib
+The package info of project:
+    require(zlib):
+      -> description: A Massively Spiffy Yet Delicately Unobtrusive Compression Library
+      -> version: 1.2.11
+      -> urls:
+         -> http://zlib.net/zlib-1.2.11.tar.gz
+            -> c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+         -> https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
+            -> c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+      -> repo: xmake-repo https://gitee.com/tboox/xmake-repo.git master
+      -> cachedir: /Users/ruki/.xmake/cache/packages/2010/z/zlib/1.2.11
+      -> installdir: /Users/ruki/.xmake/packages/z/zlib/1.2.11/d639b7d6e3244216b403b39df5101abf
+      -> searchdirs:
+      -> searchnames: zlib-1.2.11.tar.gz
+      -> fetchinfo: 1.2.11, system
+          -> version: 1.2.11
+          -> links: z
+          -> linkdirs: /usr/local/Cellar/zlib/1.2.11/lib
+          -> includedirs: /usr/local/Cellar/zlib/1.2.11/include
+      -> platforms: iphoneos, mingw@windows, macosx, mingw@linux,macosx, android@linux,macosx, windows, linux
+      -> requires:
+         -> plat: macosx
+         -> arch: x86_64
+         -> configs:
+            -> debug: false
+            -> vs_runtime: MT
+            -> shared: false
+      -> configs:
+      -> configs (builtin):
+         -> debug: Enable debug symbols. (default: false)
+         -> shared: Enable shared library. (default: false)
+         -> cflags: Set the C compiler flags.
+         -> cxflags: Set the C/C++ compiler flags.
+         -> cxxflags: Set the C++ compiler flags.
+         -> asflags: Set the assembler flags.
+         -> vs_runtime: Set vs compiler runtime. (default: MT)
+            -> values: {"MT","MD"}
 ```
 
 ## Contacts

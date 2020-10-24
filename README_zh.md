@@ -77,7 +77,7 @@ $ xrepo add-repo myrepo https://github.com/mygroup/myrepo
 
 ```lua
 add_requires("tbox >1.6.1", "libuv master", "vcpkg::ffmpeg", "brew::pcre2/libpcre2-8")
-add_requires("conan::openssl/1.1.1g", {alias = "openssl", optional = true, debug = true}) 
+add_requires("conan::openssl/1.1.1g", {alias = "openssl", optional = true, debug = true})
 target("test")
     set_kind("binary")
     add_files("src/*.c")
@@ -180,6 +180,57 @@ $ xrepo fetch -p [iphoneos|android] --cflags "zlib 1.2.x"
 ```console
 $ xrepo fetch --cflags --ldflags conan::zlib/1.2.11
 -I/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include -L/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib -lz
+```
+
+### 导出安装后的包
+
+xrepo 可以快速导出已经安装后的包，包括对应的库文件，头文件等等。
+
+```console
+$ xrepo export -o /tmp/output zlib
+```
+
+### 查看包信息
+
+```console
+$ xrepo info zlib
+The package info of project:
+    require(zlib):
+      -> description: A Massively Spiffy Yet Delicately Unobtrusive Compression Library
+      -> version: 1.2.11
+      -> urls:
+         -> http://zlib.net/zlib-1.2.11.tar.gz
+            -> c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+         -> https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
+            -> c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+      -> repo: xmake-repo https://gitee.com/tboox/xmake-repo.git master
+      -> cachedir: /Users/ruki/.xmake/cache/packages/2010/z/zlib/1.2.11
+      -> installdir: /Users/ruki/.xmake/packages/z/zlib/1.2.11/d639b7d6e3244216b403b39df5101abf
+      -> searchdirs:
+      -> searchnames: zlib-1.2.11.tar.gz
+      -> fetchinfo: 1.2.11, system
+          -> version: 1.2.11
+          -> links: z
+          -> linkdirs: /usr/local/Cellar/zlib/1.2.11/lib
+          -> includedirs: /usr/local/Cellar/zlib/1.2.11/include
+      -> platforms: iphoneos, mingw@windows, macosx, mingw@linux,macosx, android@linux,macosx, windows, linux
+      -> requires:
+         -> plat: macosx
+         -> arch: x86_64
+         -> configs:
+            -> debug: false
+            -> vs_runtime: MT
+            -> shared: false
+      -> configs:
+      -> configs (builtin):
+         -> debug: Enable debug symbols. (default: false)
+         -> shared: Enable shared library. (default: false)
+         -> cflags: Set the C compiler flags.
+         -> cxflags: Set the C/C++ compiler flags.
+         -> cxxflags: Set the C++ compiler flags.
+         -> asflags: Set the assembler flags.
+         -> vs_runtime: Set vs compiler runtime. (default: MT)
+            -> values: {"MT","MD"}
 ```
 
 ## 联系方式
