@@ -56,6 +56,32 @@ We only need install xmake to use the xrepo command. About the installation of x
 * MSYS (i386, x86_64)
 * MinGW (i386, x86_64, arm, arm64)
 
+## Suppory distributed repository
+
+In addition to directly retrieving the installation package from the official repository: [xmake-repo](https://github.com/xmake-io/xmake-repo),
+We can also add any number of self-built repositories, and even completely isolate the external network, and only maintain the installation and integration of private packages on the company's internal network.
+
+Just use the following command to add your own warehouse address:
+
+```console
+$ xrepo add-repo myrepo https://github.com/mygroup/myrepo
+```
+
+## Seamless integration with xmake project
+
+```lua
+add_requires("tbox >1.6.1", "libuv master", "vcpkg::ffmpeg", "brew::pcre2/libpcre2-8")
+add_requires("conan::openssl/1.1.1g", {alias = "openssl", optional = true, debug = true})
+target("test")
+     set_kind("binary")
+     add_files("src/*.c")
+     add_packages("tbox", "libuv", "vcpkg::ffmpeg", "brew::pcre2/libpcre2-8", "openssl")
+```
+
+The following is the overall architecture and compilation process integrated with xmake.
+
+<img src="https://xmake.io/assets/img/index/package_arch.png" width="650px" />
+
 ## Get started
 
 ### Installation package
@@ -70,7 +96,7 @@ $ xrepo install zlib tbox
 
 ```console
 $ xrepo install "zlib 1.2.x"
-$ xrepo install "zlib >= 1.2.0"
+$ xrepo install "zlib >=1.2.0"
 ```
 
 #### Install the specified platform package
