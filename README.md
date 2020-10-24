@@ -37,7 +37,13 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## Introduction ([中文](/README_zh.md))
 
-xRepo is a cross-platform C/C++ package manager based on [Xmake](https://github.com/xmake-io/xmake).
+xrepo is a cross-platform C/C++ package manager based on [Xmake](https://github.com/xmake-io/xmake).
+
+It is based on the runtime provided by xmake, but it is a complete and independent package management program. Compared with package managers such as vcpkg/homebrew, xrepo can provide C/C++ packages for more platforms and architectures at the same time.
+
+And it also supports multi-version semantic selection. In addition, it is also a decentralized distributed warehouse. It not only provides the official [xmake-repo](https://github.com/xmake-io/xmake-repo) warehouse, It also supports users to build multiple private warehouses.
+
+At the same time, xrepo also supports installing packages from third-party package managers such as vcpkg/homebrew/conan, and provides unified and consistent library link information to facilitate integration and docking with third-party projects.
 
 If you want to know more, please refer to: [Documents](https://xmake.io/#/home), [Github](https://github.com/xmake-io/xrepo) and [Gitee](https://gitee.com/tboox/xrepo)
 
