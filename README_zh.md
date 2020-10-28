@@ -206,7 +206,7 @@ $ xrepo search zlib "pcr*"
 ### 查看包环境信息
 
 ```console
-$ xrepo env luajit
+$ xrepo env --show luajit
 {
   OLDPWD = "/mnt/tbox",
   HOME = "/home/ruki",
@@ -224,14 +224,15 @@ $ xrepo env luajit
 ### 加载执行包环境并运行命令
 
 ```console
-$ xrepo env "luajit 2.x" luajit
+$ xrepo env luajit
 LuaJIT 2.1.0-beta3 -- Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
 JIT: ON SSE2 SSE3 SSE4.1 BMI2 fold cse dce fwd dse narrow loop abc sink fuse
 >
 ```
 
 ```console
-$ xrepo env -p iphoneos "zlib,libpng,luajit 2.x" cmake ..
+$ xrepo env -b "luajit 2.x" luajit
+$ xrepo env -p iphoneos -b "zlib,libpng,luajit 2.x" cmake ..
 ```
 
 ### 查看包信息

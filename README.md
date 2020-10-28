@@ -202,10 +202,10 @@ $ xrepo search zlib "pcr*"
       -> pcre: A Perl Compatible Regular Expressions Library (in xmake-repo)
 ```
 
-### View package environment information
+### Show package environment information
 
 ```console
-$ xrepo env luajit
+$ xrepo env --show luajit
 {
    OLDPWD = "/mnt/tbox",
    HOME = "/home/ruki",
@@ -223,14 +223,15 @@ $ xrepo env luajit
 ### Load package environment and run commands
 
 ```console
-$ xrepo env "luajit 2.x" luajit
-LuaJIT 2.1.0-beta3 - Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
+$ xrepo env luajit
+LuaJIT 2.1.0-beta3 -- Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
 JIT: ON SSE2 SSE3 SSE4.1 BMI2 fold cse dce fwd dse narrow loop abc sink fuse
 >
 ```
 
 ```console
-$ xrepo env -p iphoneos "zlib,libpng,luajit 2.x" cmake ..
+$ xrepo env -b "luajit 2.x" luajit
+$ xrepo env -p iphoneos -b "zlib,libpng,luajit 2.x" cmake ..
 ```
 
 ### Show the given package information
