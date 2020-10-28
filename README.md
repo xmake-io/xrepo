@@ -229,6 +229,10 @@ JIT: ON SSE2 SSE3 SSE4.1 BMI2 fold cse dce fwd dse narrow loop abc sink fuse
 >
 ```
 
+```console
+$ xrepo env -p iphoneos "zlib,libpng,luajit 2.x" cmake ..
+```
+
 ### Show the given package information
 
 ```console
