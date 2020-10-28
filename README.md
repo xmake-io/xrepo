@@ -61,6 +61,7 @@ We only need install xmake to use the xrepo command. About the installation of x
 * iOS (armv7, armv7s, arm64, i386, x86_64)
 * MSYS (i386, x86_64)
 * MinGW (i386, x86_64, arm, arm64)
+* Cross Toolchains
 
 ## Suppory distributed repository
 

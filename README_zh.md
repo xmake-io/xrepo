@@ -61,6 +61,7 @@ xrepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 * iOS (armv7, armv7s, arm64, i386, x86_64)
 * MSYS (i386, x86_64)
 * MinGW (i386, x86_64, arm, arm64)
+* Cross Toolchains
 
 ## 分布式仓库支持
 
