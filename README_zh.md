@@ -132,8 +132,8 @@ $ xrepo install -k shared zlib
 #### 安装指定配置包
 
 ```console
-$ xrepo install --configs="vs_runtime=MD" zlib
-$ xrepo install --configs="regex=true,thread=true" boost
+$ xrepo install -f "vs_runtime=MD" zlib
+$ xrepo install -f "regex=true,thread=true" boost
 ```
 
 #### 安装第三方包管理器的包
@@ -201,6 +201,33 @@ $ xrepo search zlib "pcr*"
     pcr*:
       -> pcre2: A Perl Compatible Regular Expressions Library (in xmake-repo)
       -> pcre: A Perl Compatible Regular Expressions Library (in xmake-repo)
+```
+
+### 查看包环境信息
+
+```console
+$ xrepo env luajit
+{
+  OLDPWD = "/mnt/tbox",
+  HOME = "/home/ruki",
+  PATH = "/home/ruki/.xmake/packages/l/luajit/2.1.0-beta3/fbac76d823b844f0b91abf3df0a3bc61/bin:/tmp:/tmp/arm-linux-musleabi-cross/bin:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  TERM = "xterm",
+  PWD = "/mnt/xmake",
+  XMAKE_PROGRAM_DIR = "/mnt/xmake/xmake",
+  HOSTNAME = "e6edd61ff1ab",
+  LD_LIBRARY_PATH = "/home/ruki/.xmake/packages/l/luajit/2.1.0-beta3/fbac76d823b844f0b91abf3df0a3bc61/lib",
+  SHLVL = "1",
+  _ = "/mnt/xmake/scripts/xrepo.sh"
+}
+```
+
+### 加载执行包环境并运行命令
+
+```console
+$ xrepo env "luajit 2.x" luajit
+LuaJIT 2.1.0-beta3 -- Copyright (C) 2005-2017 Mike Pall. http://luajit.org/
+JIT: ON SSE2 SSE3 SSE4.1 BMI2 fold cse dce fwd dse narrow loop abc sink fuse
+>
 ```
 
 ### 查看包信息
