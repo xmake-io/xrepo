@@ -112,6 +112,7 @@ $ xrepo install "zlib >=1.2.0"
 $ xrepo install -p iphoneos -a arm64 zlib
 $ xrepo install -p android [--ndk=/xxx] zlib
 $ xrepo install -p mingw [--mingw=/xxx] zlib
+$ xrepo install -p cross --sdk=/xxx/arm-linux-musleabi-cross zlib
 ```
 
 #### Install the debug package
@@ -187,6 +188,17 @@ xrepo can quickly export installed packages, including corresponding library fil
 
 ```console
 $ xrepo export -o /tmp/output zlib
+```
+
+### Search supported packages
+
+```console
+$ xrepo search zlib "pcr*"
+    zlib:
+      -> zlib: A Massively Spiffy Yet Delicately Unobtrusive Compression Library (in xmake-repo)
+    pcr*:
+      -> pcre2: A Perl Compatible Regular Expressions Library (in xmake-repo)
+      -> pcre: A Perl Compatible Regular Expressions Library (in xmake-repo)
 ```
 
 ### Show the given package information

@@ -113,6 +113,7 @@ $ xrepo install "zlib >=1.2.0"
 $ xrepo install -p iphoneos -a arm64 zlib
 $ xrepo install -p android [--ndk=/xxx] zlib
 $ xrepo install -p mingw [--mingw=/xxx] zlib
+$ xrepo install -p cross --sdk=/xxx/arm-linux-musleabi-cross zlib
 ```
 
 #### 安装调试版本包
@@ -188,6 +189,17 @@ xrepo 可以快速导出已经安装后的包，包括对应的库文件，头�
 
 ```console
 $ xrepo export -o /tmp/output zlib
+```
+
+### 搜索支持的包
+
+```console
+$ xrepo search zlib "pcr*"
+    zlib:
+      -> zlib: A Massively Spiffy Yet Delicately Unobtrusive Compression Library (in xmake-repo)
+    pcr*:
+      -> pcre2: A Perl Compatible Regular Expressions Library (in xmake-repo)
+      -> pcre: A Perl Compatible Regular Expressions Library (in xmake-repo)
 ```
 
 ### 查看包信息
