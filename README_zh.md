@@ -72,6 +72,7 @@ xrepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 * Homebrew/Linuxbrew (brew::pcre2/libpcre2-8)
 * Pacman on archlinux/msys2 (pacman::libcurl)
 * Clib (clib::clibs/bytes@0.0.4)
+* Dub (dub::log 0.4.3)
 
 ## 分布式仓库支持
 
