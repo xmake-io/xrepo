@@ -63,6 +63,16 @@ We only need install xmake to use the xrepo command. About the installation of x
 * MinGW (i386, x86_64, arm, arm64)
 * Cross Toolchains
 
+## Supported package repositories
+
+* Official package repository [xmake-repo](https://github.com/xmake-io/xmake-repo) (tbox >1.6.1)
+* [User-built repositories](https://xmake.io/#/package/remote_package?id=using-self-built-private-package-repository)
+* Conan (conan::openssl/1.1.1g)
+* Vcpkg (vcpkg:ffmpeg)
+* Homebrew/Linuxbrew (brew::pcre2/libpcre2-8)
+* Pacman on archlinux/msys2 (pacman::libcurl)
+* Clib (clib::clibs/bytes@0.0.4)
+
 ## Suppory distributed repository
 
 In addition to directly retrieving the installation package from the official repository: [xmake-repo](https://github.com/xmake-io/xmake-repo).

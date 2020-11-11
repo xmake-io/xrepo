@@ -63,6 +63,16 @@ xrepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 * MinGW (i386, x86_64, arm, arm64)
 * Cross Toolchains
 
+## 支持的包管理仓库
+
+* 官方自建仓库 [xmake-repo](https://github.com/xmake-io/xmake-repo) (tbox >1.6.1)
+* [用户自建仓库](https://xmake.io/#/zh-cn/package/remote_package?id=%e4%bd%bf%e7%94%a8%e8%87%aa%e5%bb%ba%e7%a7%81%e6%9c%89%e5%8c%85%e4%bb%93%e5%ba%93)
+* Conan (conan::openssl/1.1.1g)
+* Vcpkg (vcpkg:ffmpeg)
+* Homebrew/Linuxbrew (brew::pcre2/libpcre2-8)
+* Pacman on archlinux/msys2 (pacman::libcurl)
+* Clib (clib::clibs/bytes@0.0.4)
+
 ## 分布式仓库支持
 
 除了可以直接从官方仓库：[xmake-repo](https://github.com/xmake-io/xmake-repo) 检索安装包之外，
