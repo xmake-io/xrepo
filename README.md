@@ -152,6 +152,8 @@ $ xrepo install -f "regex=true,thread=true" boost
 $ xrepo install brew::zlib
 $ xrepo install vcpkg::zlib
 $ xrepo install conan::zlib/1.2.11
+$ xrepo install pacman:libpng
+$ xrepo install dub:log
 ```
 
 ### Find the library information of the package
