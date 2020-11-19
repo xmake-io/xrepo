@@ -47,6 +47,8 @@ At the same time, xrepo also supports installing packages from third-party packa
 
 If you want to know more, please refer to: [Documents](https://xrepo.xmake.io/#/getting_started), [Github](https://github.com/xmake-io/xrepo) and [Gitee](https://gitee.com/tboox/xrepo)
 
+![](https://xrepo.xmake.io/assets/img/xrepo.gif)
+
 ## Installation
 
 We only need install xmake to use the xrepo command. About the installation of xmake, we can see: [Xmake Installation Document](https://xmake.io/#/guide/installation).
