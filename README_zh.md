@@ -250,6 +250,21 @@ $ xrepo env -b "luajit 2.x" luajit
 $ xrepo env -p iphoneos -b "zlib,libpng,luajit 2.x" cmake ..
 ```
 
+### 进入包 shell 环境
+
+我们可以通过在当前目录下，添加 xmake.lua 文件，定制化一些包配置，然后进入特定的包 shell 环境。
+
+```lua
+add_requires("zlib 1.2.11")
+add_requires("python 3.x", "luajit")
+```
+
+```console
+$ xrepo env shell
+> python --version
+> luajit --version
+```
+
 ### 查看包信息
 
 ```console
@@ -291,6 +306,15 @@ The package info of project:
          -> asflags: Set the assembler flags.
          -> vs_runtime: Set vs compiler runtime. (default: MT)
             -> values: {"MT","MD"}
+```
+
+### 卸载所有的包
+
+我们可以通过下面的命令，批量卸载删除已经安装的包，支持模式匹配：
+
+```bash
+$ xrepo remove --all
+$ xrepo remove --all zlib pcr*
 ```
 
 ## 联系方式
