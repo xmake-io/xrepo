@@ -199,12 +199,18 @@ $ xrepo fetch --cflags --ldflags conan::zlib/1.2.11
 -I/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include -L/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib -lz
 ```
 
-### 导出安装后的包
+### 导入导出安装后的包
 
 xrepo 可以快速导出已经安装后的包，包括对应的库文件，头文件等等。
 
 ```console
 $ xrepo export -o /tmp/output zlib
+```
+
+也可以在其他机器上导入之前导出的安装包，实现包的迁移。
+
+```
+$ xrepo import -i /xxx/packagedir zlib
 ```
 
 ### 搜索支持的包

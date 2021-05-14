@@ -198,12 +198,18 @@ $ xrepo fetch --cflags --ldflags conan::zlib/1.2.11
 -I/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include -L/Users/ruki/.conan/data/zlib/1.2.11/_/_/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib -lz
 ```
 
-### Export the installed packages
+### Import and export packages
 
-xrepo can quickly export installed packages, including corresponding library files, header files, etc.
+xrepo can quickly export the installed packages, including the corresponding library files, header files, and so on.
 
 ```console
 $ xrepo export -o /tmp/output zlib
+```
+
+You can also import the previously exported installation package on other machines to implement package migration.
+
+```
+$ xrepo import -i /xxx/packagedir zlib
 ```
 
 ### Search supported packages
