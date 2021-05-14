@@ -208,7 +208,7 @@ $ xrepo export -o /tmp/output zlib
 
 You can also import the previously exported installation package on other machines to implement package migration.
 
-```
+```console
 $ xrepo import -i /xxx/packagedir zlib
 ```
 

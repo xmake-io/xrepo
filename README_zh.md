@@ -209,7 +209,7 @@ $ xrepo export -o /tmp/output zlib
 
 也可以在其他机器上导入之前导出的安装包，实现包的迁移。
 
-```
+```console
 $ xrepo import -i /xxx/packagedir zlib
 ```
 
