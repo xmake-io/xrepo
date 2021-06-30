@@ -288,6 +288,12 @@ $ xrepo env shell
 > luajit --version
 ```
 
+We can also configure and load the corresponding toolchain environment in xmake.lua, for example, load the VS compilation environment.
+
+```lua
+set_toolchains("msvc")
+```
+
 ### Show the given package information
 
 ```console

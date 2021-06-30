@@ -289,6 +289,12 @@ $ xrepo env shell
 > luajit --version
 ```
 
+我们也可以在 xmake.lua 配置加载对应的工具链环境，比如加载 vs 的编译环境。
+
+```lua
+set_toolchains("msvc")
+```
+
 ### 查看包信息
 
 ```console
