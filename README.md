@@ -223,6 +223,24 @@ $ xrepo search zlib "pcr*"
       -> pcre: A Perl Compatible Regular Expressions Library (in xmake-repo)
 ```
 
+In addition, you can now search for their packages from third-party package managers such as vcpkg, conan, conda, and apt. You only need to add the corresponding package namespace, for example:
+
+```console
+$ xrepo search vcpkg::pcre
+The package names:
+     vcpkg::pcre:
+       -> vcpkg::pcre-8.44#8: Perl Compatible Regular Expressions
+       -> vcpkg::pcre2-10.35#2: PCRE2 is a re-working of the original Perl Compatible Regular Expressions library
+```
+
+```console
+$ xrepo search conan::openssl
+The package names:
+     conan::openssl:
+       -> conan::openssl/1.1.1g:
+       -> conan::openssl/1.1.1h:
+```
+
 ### Show package environment information
 
 ```console
