@@ -144,7 +144,7 @@ $ xrepo install -k shared zlib
 #### Install the specified configuration package
 
 ```console
-$ xrepo install -f "vs_runtime=MD" zlib
+$ xrepo install -f "vs_runtime='MD'" zlib
 $ xrepo install -f "regex=true,thread=true" boost
 ```
 
