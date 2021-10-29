@@ -273,9 +273,11 @@ $ xrepo env -b "luajit 2.x" luajit
 $ xrepo env -p iphoneos -b "zlib,libpng,luajit 2.x" cmake ..
 ```
 
-### Enter the package shell environment
+### Package virtual environment
 
-We can customize some package configurations by adding the xmake.lua file in the current directory, and then enter the specific package shell environment.
+#### Enter the virtual environment
+
+We can customize some package configurations by adding the xmake.lua file in the current directory, and then enter the specific package virtual environment.
 
 ```lua
 add_requires("zlib 1.2.11")
@@ -293,6 +295,46 @@ We can also configure and load the corresponding toolchain environment in xmake.
 ```lua
 set_toolchains("msvc")
 ```
+
+#### Manage virtual environments
+
+We can use the following command to register the specified virtual environment configuration globally to the system for quick switching.
+
+```console
+$ xrepo env --add /tmp/base.lua
+```
+
+At this time, we have saved a global virtual environment called base, and we can view it through the list command.
+
+```console
+$ xrepo env --list
+/Users/ruki/.xmake/envs:
+  -base
+envs(1) found!
+```
+
+We can also delete it.
+
+```console
+$ xrepo env --remove base
+```
+
+#### Switch global virtual environment
+
+If we register multiple virtual environments, we can also switch them quickly.
+
+```console
+$ xrepo env -b base shell
+> python --version
+```
+
+Or directly load the specified virtual environment to run specific commands
+
+```console
+$ xrepo env -b base python --version
+```
+
+`xrepo env -b/--bind` is to bind the specified virtual environment. For more details, see: [#1762](https://github.com/xmake-io/xmake/issues/1762)
 
 ### Show the given package information
 

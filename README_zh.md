@@ -274,9 +274,11 @@ $ xrepo env -b "luajit 2.x" luajit
 $ xrepo env -p iphoneos -b "zlib,libpng,luajit 2.x" cmake ..
 ```
 
-### 进入包 shell 环境
+### 包虚拟环境
 
-我们可以通过在当前目录下，添加 xmake.lua 文件，定制化一些包配置，然后进入特定的包 shell 环境。
+#### 进入虚拟环境
+
+我们可以通过在当前目录下，添加 xmake.lua 文件，定制化一些包配置，然后进入特定的包虚拟环境。
 
 ```lua
 add_requires("zlib 1.2.11")
@@ -294,6 +296,46 @@ $ xrepo env shell
 ```lua
 set_toolchains("msvc")
 ```
+
+#### 管理虚拟环境
+
+我们可以使用下面的命令，把指定的虚拟环境配置全局注册到系统中，方便快速切换。
+
+```console
+$ xrepo env --add /tmp/base.lua
+```
+
+这个时候，我们就保存了一个名叫 base 的全局虚拟环境，我们可以通过 list 命令去查看它。
+
+```console
+$ xrepo env --list
+/Users/ruki/.xmake/envs:
+  - base
+envs(1) found!
+```
+
+我们也可以删除它。
+
+```console
+$ xrepo env --remove base
+```
+
+#### 切换全局虚拟环境
+
+如果我们注册了多个虚拟环境，我们也可以快速切换它们。
+
+```console
+$ xrepo env -b base shell
+> python --version
+```
+
+或者直接加载指定虚拟环境运行特定命令
+
+```console
+$ xrepo env -b base python --version
+```
+
+`xrepo env -b/--bind` 就是绑定指定的虚拟环境，更多详情见：[#1762](https://github.com/xmake-io/xmake/issues/1762)
 
 ### 查看包信息
 
