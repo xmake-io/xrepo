@@ -47,7 +47,7 @@ xrepo 是一个基于 [Xmake](https://github.com/xmake-io/xmake) 的跨平台 C/
 
 如果你想要了解更多，请参考：[在线文档](https://xrepo.xmake.io/#/zh-cn/getting_started), [Github](https://github.com/xmake-io/xrepo) 以及 [Gitee](https://gitee.com/tboox/xrepo)
 
-![](https://xrepo.xmake.io/assets/img/xrepo.gif)
+![](https://github.com/xmake-io/xrepo-docs/raw/master/assets/img/xrepo.gif)
 
 ## 安装
 
