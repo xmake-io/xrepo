@@ -47,7 +47,7 @@ At the same time, xrepo also supports installing packages from third-party packa
 
 If you want to know more, please refer to: [Documents](https://xrepo.xmake.io/#/getting_started), [Github](https://github.com/xmake-io/xrepo) and [Gitee](https://gitee.com/tboox/xrepo)
 
-![](https://xrepo.xmake.io/assets/img/xrepo.gif)
+![](https://github.com/xmake-io/xrepo-docs/raw/master/assets/img/xrepo.gif)
 
 ## Installation
 
